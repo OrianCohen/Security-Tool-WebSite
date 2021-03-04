@@ -16,9 +16,11 @@
   </component>
   <component name="Git.Settings">
     <option name="PATH_TO_GIT" value="https://github.com/OrianCohen/chabot-LSTM.git" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectId" id="1pHiQ34GpqVPjZckJcW6QrY2Zcp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -85,7 +87,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1614846396306</updated>
-      <workItem from="1614846421731" duration="2751000" />
+      <workItem from="1614846421731" duration="7145000" />
     </task>
     <servers />
   </component>
