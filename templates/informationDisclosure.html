@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Security Automated Tools</title>
+
+<style>
+		* {
+		box-sizing: border-box;
+		}
+		*:focus {
+		outline: none;
+		}
+		body {
+        /*background-image: url("https://wallpapercave.com/wp/wp3930476.jpg");*/
+		background-image: url("https://wallpapercave.com/wp/wp4699998.jpg");
+        font-family: 'Ubuntu', sans-serif;
+	    -webkit-background-size: cover;
+	    -moz-background-size: cover;
+	    -o-background-size: cover;
+	    background-size: cover;
+		background-attachment: fixed;
+		}
+		.login {
+		right: 30%;
+		opacity: 0.7;
+		width: 750px;
+		height: auto;
+        margin: 7em auto;
+		box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+		font-family: 'Ubuntu', sans-serif;
+		padding: 10px;
+		}
+		.login-screen {
+		background-color: #ECF0F1;
+		padding: 20px;
+		border-radius: 5px;
+		opacity: 1.2;
+		}
+		.text{
+		color: #2980B9;
+		font-weight: bold;
+		}
+		.login-form {
+		text-align: center;
+		}
+		input {
+		text-align: center;
+		background-color: #ECF0F1;
+		border: 2px solid transparent;
+		border-radius: 3px;
+		font-size: 16px;
+		font-weight: 200;
+		padding: 10px 0;
+		width: 250px;
+		transition: border .5s;
+		}
+		input:focus {
+		border: 2px solid #3498DB;
+		box-shadow: none;
+		}
+		.submit {
+	    background-color: #555555;
+		color: white;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		cursor: pointer;
+		}
+		.selected{
+		background-color: lightslategray;
+		text-transform: uppercase;
+		text-decoration-style: solid;
+		}
+		.text-inside{
+		font-weight: bold;
+		}
+		.container {
+		width: 100%;
+		margin: 0 auto;
+		font-family: 'Ubuntu', sans-serif;
+		padding: 0 15%;
+        }
+        header{background-color: #C6C6BC;
+        }
+        header::after{
+		content:'';
+		display: table;
+		clear: both;
+        }
+        .logo{
+		float: left;
+		padding: 0;
+		width: 100%;
+        }
+		nav{
+		float: right;
+		align-items: center;
+        }
+        nav ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+        }
+        nav li {
+		display: inline-block;
+		margin-left: 70px;
+		padding-top: 12px;
+		position: relative;
+        }
+        nav a{
+		color: #fff;
+		padding: 5px 20px;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-size: 14px;
+		/*frame*/
+		border: 1px solid transparent;
+		transition: 0.6s ease;
+        }
+        nav a:hover{
+		background-color: #FFFFFF;
+		color: #000000;
+        }
+        ul li.active a{
+		background-color: #FFFFFF;
+		color: #000;
+        }
+		ul li.active a{
+		background-color: #FFFFFF;
+		color: #000;
+        }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('homepage') }}">HOME</a></li>
+                <li class="active"><a href="{{ url_for('headers') }}">HEADERS</a></li>
+                <li><a href="{{ url_for('bruteForce') }}">BRUTE-FORCE</a></li>
+                <li><a href="{{ url_for('sql') }}">SQL-INJECTION</a></li>
+
+            </ul>
+        </nav>
+
+
+<div>
+<div class="login" align="center">
+		<div class="login-screen">
+			 <center><h3>Security Tool</h3></center>
+			 <center><h1>Header Information Disclosure</h1></center>
+			 <center><h3>Scan your site now</h3></center>
+			      <form action="" method="post" name="scan" id="scanForm">
+					  <div>
+						  <div>
+							  <center><input type="text" name="key" id="q" placeholder="Please enter URL here" autofocus autocorrect="off" autocapitalize="off" spellcheck="false"></center>
+							  <center><br><input class="submit" name="submit" type="submit" value="Scan"/></br></center>
+						  </div>
+					  </div>
+
+				  </form>
+		  </div>
+		</div >
+			<div class="login-form"></div>
+</div>
+
+{% if result %}
+<div class="login">
+	<div class="login-screen">
+		  <p>
+			  <center><h2 class="selected">Headers</h2></center>
+			  {% for head in result%}
+			<div class="text"><br>{{ head + ':' }}</br></div>
+			<div class="text-inside">{{ result[head] }}</div>
+			  {% endfor %}
+		  </p>
+	</div>
+</div>
+{% endif %}
+
+{% if evaluate %}
+<div class="login">
+	<div class="login-screen">
+		  <p>
+			  <center><h2 class="selected"> *WARNING* </h2></center>
+			  {% for head in evaluate %}
+				<div class="text"><br>{{ head + ':' }}</br></div>
+				<div class="text-inside">{{ evaluate[head] }}</div>
+			  {% endfor %}
+		  </p>
+	</div>
+</div>
+{% endif %}
+
+{% if missing %}
+<div class="login">
+	<div class="login-screen">
+		  <p>
+			 <center><h2 class="selected">Missing Headers</h2></center>
+			  {% for head in missing %}
+				<div class="text"><br>{{ head + ':' }}</br></div>
+				<div class="text-inside">{{ missing[head] }}</div>
+			  {% endfor %}
+		  </p>
+	</div>
+</div>
+{% endif %}
+
+
+</body>
+</html>

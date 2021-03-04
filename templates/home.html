@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Security Automated Tools</title>
+<style>
+		* {
+		box-sizing: border-box;
+		}
+		*:focus {
+		outline: none;
+		}
+		body {
+        /*background-image: url("https://wallpapercave.com/wp/wp2691560.jpg");*/
+        background-image: url("https://wallpapercave.com/wp/wp4699998.jpg");
+        font-family: 'Ubuntu', sans-serif;
+	    -webkit-background-size: cover;
+	    -moz-background-size: cover;
+	    -o-background-size: cover;
+	    background-size: cover;
+		background-attachment: fixed;
+		}
+
+        .container {
+		width: 100%;
+		margin: 0 auto;
+		font-family: 'Ubuntu', sans-serif;
+		padding: 0 15%;
+        }
+        header{
+        background-color: #C6C6BC;
+        }
+        header::after{
+        content:'';
+        display: table;
+        clear: both;
+        }
+        .logo{
+        float: left;
+        padding: 0;
+        width: 100%;
+        }
+        nav{
+        float: right;
+        align-items: center;
+        }
+        nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        }
+
+        nav li {
+        display: inline-block;
+        margin-left: 70px;
+        padding-top: 12px;
+        position: relative;
+        }
+        nav a{
+        color: #fff;
+        padding: 5px 20px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 14px;
+
+        /*frame*/
+        border: 1px solid transparent;
+        transition: 0.6s ease;
+        }
+        nav a:hover{
+        background-color: #FFFFFF;
+        color: #000000;
+        }
+        ul li.active a{
+        background-color: #FFFFFF;
+        color: #000;
+        }
+
+</style>
+</head>
+
+<body>
+<div class="container">
+        <nav>
+                <ul>
+                <li class="active"><a href="{{ url_for('homepage') }}">HOME</a></li>
+                <li><a href="{{ url_for('headers') }}">HEADERS</a></li>
+                <li><a href="{{ url_for('bruteForce') }}">BRUTE-FORCE</a></li>
+                <li><a href="{{ url_for('sql') }}">SQL-INJECTION</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>
