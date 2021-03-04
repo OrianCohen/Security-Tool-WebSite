@@ -7,9 +7,11 @@ from models.scanHeaders import HeadersRaw
 
 app = Flask(__name__)
 
+
 @app.route('/', methods=["POST", "GET"])
-def home():
+def index():
     return render_template('home.html')
+
 
 @app.route('/homepage', methods=["POST", "GET"])
 def homepage():
@@ -33,7 +35,7 @@ def headers():
     return render_template('informationDisclosure.html')
 
 
-@app.route('/bruteForce', methods=["POST", "GET"])
+@app.route('/brute_force', methods=["POST", "GET"])
 def brute_force():
     # If we have input url we will check brute force directory and brute force files
     if request.method == 'POST':
